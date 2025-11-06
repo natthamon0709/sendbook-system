@@ -1,0 +1,20 @@
+การติดตั้ง
+1.) โหลด Xampp https://www.apachefriends.org/download.html
+https://sourceforge.net/projects/xampp/files/XAMPP%20Windows/8.0.28/xampp-windows-x64-8.0.28-0-VS16-installer.exe/download
+2.) ติดตั้ง Xampp
+3.) เปิด Xampp แล้วกด Start ที่ Apache และ MySQL ตามรูป #1
+4.) นำไฟล์ website ที่ได้แตกไฟล์แล้วลงใน C:\xampp\htdocs ตามรูป #2
+5.) เขาลิงค์ http://localhost/phpmyadmin/ เพื่อจัดการฐานข้อมูล
+6.) กด New ตามรูป #3
+7.) ใส่ข้อมูล ตามรูป #4 แล้วกด Create
+8.) เลือกเมนู Import ตามรูป #5 แล้วอัพโหลดไฟล์ magmus-27.sql ตามรูป #6
+9.) กดปุ่ม Import
+
+10.) หลังจากทำครบหมดแล้ว ให้เปิดไฟล์ C:\xampp\apache\conf\httpd.conf ด้วย Notepad
+11.) เพิ่มข้อความ LimitRequestLine 16384  ไว้ข้างล่างสุดของไฟล์ แล้วกด Stop ใน Xampp แล้ว Start ใหม่
+12.) ทดสอบเข้าเว็บไซต์ http://localhost/
+13.) เสร็จสิ้นการติดตั้ง
+
+วิธีใช้งานเมื่อเปิดเครื่องใหม่
+1.) เข้า Xampp แล้วกด Start ที่ Apache และ MySQL ตามรูป #1
+2.) เข้าเว็บไซต์ http://localhost/ เพื่อใช้งานได้เลย 
