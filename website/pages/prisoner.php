@@ -282,5 +282,11 @@ if ($prisoner["status"] != 1) {
       $('form').submit();
     }, 500);
     <?php } ?>
+
+    // Override default redirect behavior for success popup
+    <?php if (isset($swalSuccess)) { ?>
+    // Custom redirect to home page after success
+    window.customRedirect = '/sendbook-system/website/';
+    <?php } ?>
   });
 </script>

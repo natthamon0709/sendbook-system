@@ -9,7 +9,11 @@
       text: "<?php echo $swalSuccess ?>",
       icon: "success"
     }).then((result) => {
-      location.href = location.href;
+      if (window.customRedirect) {
+        location.href = window.customRedirect;
+      } else {
+        location.href = location.href;
+      }
     });
   <?php
   } else if (isset($swalError)) {
