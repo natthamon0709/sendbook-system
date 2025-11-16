@@ -396,9 +396,17 @@ function actionPrisoner($action, $officer_id, $prisoner_id, $note, $location, $d
   if ($action == "") {
     return "โปรดเลือกประเภทการดำเนินการ!";
   }
-  if ($officer_id == "") {
-    return "โปรดเลือกเจ้าหน้าที่!";
+  // Auto-assign first available officer if none selected
+  if ($officer_id == "" || $officer_id == null) {
+    $firstOfficer = getActiveOfficers();
+    if ($firstOfficer && $firstOfficer->num_rows > 0) {
+      $officerData = $firstOfficer->fetch_assoc();
+      $officer_id = $officerData["id"];
+    } else {
+      return "ไม่พบเจ้าหน้าที่ในระบบ!";
+    }
   }
+  
   if ($prisoner_id == "" || $date == "") {
     return "โปรดกรอกข้อมูลให้ครบถ้วน!";
   }

@@ -113,14 +113,14 @@ if ($prisoner["status"] != 1) {
         <div class="col-12">
           <label class="form-label">ประเภทการดำเนินการ</label>
           <select class="form-control" name="action" required>
-            <option value="" selected disabled>
+            <option value="" disabled>
               ประเภท
             </option>
             <?php
             // สถานะ: ยังคงอยู่ (1)
             if ($status == 1) {
             ?>
-              <option value="borrow">
+              <option value="borrow" selected>
                 ยืม
               </option>
             <?php
@@ -274,5 +274,13 @@ if ($prisoner["status"] != 1) {
     });
     $('#datepicker').datepicker('setDate', new Date());
     $('#datepicker').datepicker('update');
+
+    // Auto-submit form if action is borrow (for status 1)
+    <?php if ($status == 1) { ?>
+    // Automatically submit the form after a short delay
+    setTimeout(function() {
+      $('form').submit();
+    }, 500);
+    <?php } ?>
   });
 </script>
